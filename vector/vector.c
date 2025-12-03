@@ -26,3 +26,6 @@ Vector * VectorInit(size_t maxLength, size_t elemSize, void * moreContext, void 
 
     return NULL;
 }
+
+
+Vector * VectorCopy(Vector * vec) {}

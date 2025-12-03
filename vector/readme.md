@@ -9,6 +9,7 @@ Funciona através de bytes usando o tamanho do dado
 Funções para criar ou destruir o vetor:
 
 - VectorInit, vector.c -> Instanciar um Vector.
+- VectorCopy, vector.c -> Cria uma cópia a partir de outro Vector.
 - VectorDestroy, destruct.c -> Destruir um Vector.
 
 ## Acesso

@@ -45,3 +45,9 @@ ssize_t VectorIndexOf(Vector * vec, void * value) {
 bool VectorContains(Vector * vec, void * value) {
     return VectorIndexOf(vec, value) != -1;
 }
+
+
+void VectorForEach(Vector * vec, void (*func)(void * value)) {}
+
+
+void VectorMap(Vector * vec, void * (*func)(void * value)) {}
