@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include <string.h>
-#include <sys/types.h>
+
+typedef long ssize_t;
 
 
 #include "private.h"
