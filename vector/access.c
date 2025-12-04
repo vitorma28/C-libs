@@ -1,11 +1,19 @@
 #include <stdbool.h>
 #include <string.h>
 
-typedef long ssize_t;
-
+#ifdef _WIN32
+    typedef ssize_t long;
+#else
+    #include <sys/types.h>
+#endif
 
 #include "private.h"
 #include "vector.h"
+
+
+size_t VectorLength(Vector * vec) {
+    return vec->length;
+}
 
 
 unsigned char * VectorGet(Vector * vec, size_t key) {

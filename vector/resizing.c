@@ -25,6 +25,12 @@ static void VectorShift1Right(Vector * vec, size_t index) {
         return;
     }
 
+    if (vec->length == vec->maxLength) {
+        void * tmp = VectorGrow(vec);
+
+        if (tmp == NULL) return;
+    }
+
     for (size_t i = vec->length - 2; i >= index; i--) {
         size_t offset = i * vec->elemSize;
         size_t offsetNext = offset + vec->elemSize;
@@ -67,4 +73,8 @@ void VectorPop(Vector * vec) {
 void VectorInsert(Vector * vec, size_t index, void * value) {}
 
 
-void VectorRemove(Vector * vec, size_t index) {}
+void VectorRemove(Vector * vec, size_t index) {
+    if (index >= vec->length) return;
+
+    VectorShift1Left(vec, index);
+}
