@@ -1,10 +1,12 @@
 #include "private.h"
-#include "vector.h"
+#include "../vector.h"
+
+#include <string.h>
 
 #define DEFAULT_MAX_LENGTH 8
 
 
-Vector * VectorInit(size_t maxLength, size_t elemSize, void * moreContext, void * (*allocate)(size_t size, void * moreContext), void (*liberate)(void * ptr, void * moreContext)) {
+Vector * VectorInit(size_t maxLength, size_t elemSize, const void * moreContext, void * (*allocate)(size_t size, const void * moreContext), void (*liberate)(void * ptr, const void * moreContext)) {
     if (maxLength == 0) maxLength = DEFAULT_MAX_LENGTH;
 
     Vector * vec = (Vector *) allocate(sizeof(Vector), moreContext);
@@ -28,7 +30,7 @@ Vector * VectorInit(size_t maxLength, size_t elemSize, void * moreContext, void 
 }
 
 
-Vector * VectorCopy(Vector * vec) {
+Vector * VectorCopy(const Vector * vec) {
     Vector * nvec = (Vector *) vec->allocate(sizeof(Vector), vec->moreContext);
 
     if (nvec == NULL) return NULL;

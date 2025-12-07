@@ -1,5 +1,5 @@
 #include "private.h"
-#include "vector.h"
+#include "../vector.h"
 
 
 void VectorDestroy(Vector ** vec_ptr) {

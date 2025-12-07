@@ -1,5 +1,5 @@
 #include "private.h"
-#include "vector.h"
+#include "../vector.h"
 
 #include <string.h>
 
@@ -52,7 +52,7 @@ static void VectorShift1Left(Vector * vec, size_t index) {
 }
 
 
-void VectorPush(Vector * vec, void * value) {
+void VectorPush(Vector * vec, const void * value) {
     if (vec->length == vec->maxLength) {
         void * tmp = VectorGrow(vec);
 
@@ -70,7 +70,13 @@ void VectorPop(Vector * vec) {
 }
 
 
-void VectorInsert(Vector * vec, size_t index, void * value) {}
+void VectorInsert(Vector * vec, size_t index, const void * value) {
+    if (index >= vec->length) return;
+
+    VectorShift1Right(vec, index);
+
+    memcpy(vec->content + index * vec->elemSize, value, vec->elemSize);
+}
 
 
 void VectorRemove(Vector * vec, size_t index) {
