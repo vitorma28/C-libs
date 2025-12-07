@@ -10,7 +10,7 @@ libfile = $(builddir)/libvector.a
 CC = gcc
 
 
-.PHONY: prepare build clean
+.PHONY: prepare build clean cleanall
 
 
 clean:
