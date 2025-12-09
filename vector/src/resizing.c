@@ -9,7 +9,7 @@ static Vector * VectorGrow(Vector * vec) {
 
     if (newSpace == NULL) return NULL;
 
-    memcpy(newSpace, vec->content, vec->maxLength);
+    memcpy(newSpace, vec->content, vec->length * vec->elemSize);
 
     vec->liberate(vec->content, vec->moreContext);
 

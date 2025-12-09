@@ -7,10 +7,27 @@ ofiles := $(patsubst $(srcdir)/%.c, $(objdir)/%.o, $(cfiles))
 
 libfile = $(builddir)/libvector.a
 
+libdir = build
+libname = vector
+
 CC = gcc
 
+testfile = test/test
 
-.PHONY: prepare build clean cleanall
+
+.PHONY: prepare build clean cleanall list
+
+
+list:
+	@echo "clean build runtest buildtest"
+
+
+runtest: $(testfile)
+	@$(testfile)
+
+
+buildtest: $(libfile) main.c
+	@$(CC) -o $(testfile) main.c -L$(libdir) -l$(libname)
 
 
 clean:
