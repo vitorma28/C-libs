@@ -11,6 +11,7 @@ libdir = build
 libname = vector
 
 CC = gcc
+ctestflags = -g
 
 testfile = test/test
 
@@ -22,12 +23,16 @@ list:
 	@echo "clean build runtest buildtest"
 
 
+dbgtest: $(testfile)
+	@gdb --tui $(testfile)
+
+
 runtest: $(testfile)
 	@$(testfile)
 
 
-buildtest: $(libfile) main.c
-	@$(CC) -o $(testfile) main.c -L$(libdir) -l$(libname)
+buildtest: $(cfiles) main.c
+	@$(CC) $(ctestflags) -o $(testfile) main.c $(cfiles)
 
 
 clean:
@@ -39,7 +44,7 @@ build: prepare $(ofiles)
 
 
 prepare:
-	@mkdir -p objects build
+	@mkdir -p objects build test
 
 
 $(objdir)/%.o: $(srcdir)/%.c

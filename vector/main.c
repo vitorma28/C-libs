@@ -27,6 +27,14 @@ int main(void) {
     VectorPush(vec, vs + 2);
     VectorPush(vec, vs + 3);
     VectorPush(vec, vs + 4);
+    VectorPush(vec, vs + 3);
+    VectorPush(vec, vs + 3);
+    VectorPush(vec, vs + 3);
+    VectorPush(vec, vs + 3);
+    VectorPush(vec, vs + 3);
+    VectorPush(vec, vs + 3);
+    VectorPush(vec, vs + 4);
+    VectorPush(vec, vs + 4);
 
     VectorForEach(vec, show);
 
