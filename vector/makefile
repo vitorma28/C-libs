@@ -20,7 +20,7 @@ testfile = test/test
 
 
 list:
-	@echo "clean build runtest buildtest"
+	@echo "list clean build runtest buildtest dbgtest"
 
 
 dbgtest: $(testfile)

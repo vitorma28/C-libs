@@ -2,8 +2,17 @@
 #include "../vector.h"
 
 #include <string.h>
+#include <stdio.h>
 
 #define DEFAULT_MAX_LENGTH 8
+
+
+void peekContent(const Vector * vec) {
+    for (size_t i = 0; i < vec->length * vec->elemSize; i++) {
+        printf("%3d ", *(unsigned char *)(vec->content + i));
+    }
+    printf("\n");
+}
 
 
 Vector * VectorInit(size_t maxLength, size_t elemSize, const void * moreContext, void * (*allocate)(size_t size, const void * moreContext), void (*liberate)(void * ptr, const void * moreContext)) {

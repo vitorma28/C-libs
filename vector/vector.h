@@ -38,4 +38,6 @@ ssize_t VectorIndexOf(const Vector * vec, const void * value);
 bool VectorContains(const Vector * vec, const void * value);
 void VectorForEach(Vector * vec, void (*func)(void * value, const void * moreContext));
 
+void peekContent(const Vector * vec);
+
 #endif

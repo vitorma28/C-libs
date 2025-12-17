@@ -14,35 +14,98 @@ void liberate(void * ptr, const void * _) {
 
 
 void show(void * value, const void * _) {
-    printf("%d\n", *(int *)value);
+    int v = *(int*)value;
 }
 
 
 int main(void) {
-    int vs[5] = {10, 20, 30, 40, 50};
+    int vs[5] = {500, 20, 30, 40, 50};
 
     Vector * vec = VectorInit(0, sizeof(int), NULL, allocate, liberate);
+    
+    peekContent(vec);
+
     VectorPush(vec, vs);
+    
+    peekContent(vec);
+
     VectorPush(vec, vs + 1);
+    
+    peekContent(vec);
+
     VectorPush(vec, vs + 2);
-    VectorPush(vec, vs + 3);
-    VectorPush(vec, vs + 4);
-    VectorPush(vec, vs + 3);
-    VectorPush(vec, vs + 3);
-    VectorPush(vec, vs + 3);
-    VectorPush(vec, vs + 3);
-    VectorPush(vec, vs + 3);
-    VectorPush(vec, vs + 3);
-    VectorPush(vec, vs + 4);
-    VectorPush(vec, vs + 4);
+    
+    peekContent(vec);
 
-    VectorForEach(vec, show);
+    VectorPush(vec, vs + 3);
+    
+    peekContent(vec);
 
-    VectorPop(vec);
 
-    puts("");
 
-    VectorForEach(vec, show);
+    VectorPush(vec, vs + 2);
+    
+    peekContent(vec);
+
+    VectorPush(vec, vs + 2);
+    
+    peekContent(vec);
+
+    VectorPush(vec, vs + 2);
+    
+    peekContent(vec);
+
+    VectorPush(vec, vs + 2);
+    
+    peekContent(vec);
+
+    VectorPush(vec, vs + 2);
+    
+    peekContent(vec);
+
+    VectorPush(vec, vs + 2);
+    
+    peekContent(vec);
+
+    VectorPush(vec, vs + 2);
+    
+    peekContent(vec);
+
+    VectorPush(vec, vs + 2);
+    
+    peekContent(vec);
+
+    VectorPush(vec, vs + 2);
+    
+    peekContent(vec);
+
+    VectorPush(vec, vs + 2);
+    
+    peekContent(vec);
+
+    VectorPush(vec, vs + 2);
+    
+    peekContent(vec);
+
+    VectorPush(vec, vs + 2);
+    
+    peekContent(vec);
+
+    VectorPush(vec, vs + 2);
+    
+    peekContent(vec);
+
+    VectorPush(vec, vs + 2);
+    
+    peekContent(vec);
+
+    VectorPush(vec, vs + 2);
+    
+    peekContent(vec);
+
+    VectorPush(vec, vs + 2);
+    
+    peekContent(vec);
 
     return 0;
 }
